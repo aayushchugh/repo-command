@@ -14,9 +14,10 @@ services:
             - GITHUB_CLIENT_ID=${GITHUB_CLIENT_ID}
             - GITHUB_CLIENT_SECRET=${GITHUB_CLIENT_SECRET}
             - LOG_LEVEL=info
+        env_file:
+            - .env
         ports:
             - "3005:3000"
         volumes:
-            - ./.env:/app/.env:ro
             # Mount config file if you want to modify it without rebuilding
             - ./config:/app/config:ro
